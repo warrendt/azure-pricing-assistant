@@ -113,9 +113,10 @@ async def run_sequential_workflow(client: AzureAIAgentClient, requirements: str)
     async for event in workflow.run_stream(requirements):
         if isinstance(event, AgentRunUpdateEvent):
             # Collect agent output
-            current_agent_output += event.data
-            # Show agent output in real-time
-            print(event.data, end='', flush=True)
+            if event.data and event.data.text:
+                current_agent_output += event.data.text
+                # Show agent output in real-time
+                print(event.data.text, end='', flush=True)
         
         elif isinstance(event, WorkflowOutputEvent):
             # Parse and validate BOM JSON if this is BOM agent output
