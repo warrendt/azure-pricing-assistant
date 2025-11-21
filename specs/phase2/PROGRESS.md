@@ -37,32 +37,32 @@ Replace mock responses with intelligent prompt engineering, add Azure Retail Pri
 
 ### ✅ Task 2.2: Build BOM Agent with JSON Parsing
 
-- [ ] Update `bom_agent.py` with Phase 2 instructions from `specs/phase2/AGENT_INSTRUCTIONS.md`
-- [ ] Copy JSON schema template exactly
-- [ ] Configure Microsoft Learn MCP tool access:
-  - [ ] Ensure `microsoft_docs_search` tool is available to agent
-  - [ ] Agent can query Azure documentation for service names and SKUs
-  - [ ] Agent uses latest Azure service information when building BOM
-- [ ] Verify service-to-SKU mapping guidance included
-- [ ] Verify default `hours_per_month: 730` instruction
-- [ ] Implement JSON extraction logic:
-  - [ ] Handle markdown code blocks (```json ... ```)
-  - [ ] Parse JSON array with `json.loads()`
-  - [ ] Validate required fields:
-    - [ ] serviceName
-    - [ ] sku
-    - [ ] quantity
-    - [ ] region
-    - [ ] armRegionName
-    - [ ] hours_per_month
-- [ ] Add error handling:
-  - [ ] Invalid JSON → log error, request retry
-  - [ ] Missing fields → validation error
-  - [ ] Malformed structure → graceful failure
-- [ ] Test with various requirement scenarios:
-  - [ ] Simple web app → App Service
-  - [ ] Database → SQL Database
-  - [ ] Multi-service → App Service + SQL + Storage
+- [x] Update `bom_agent.py` with Phase 2 instructions from `specs/phase2/AGENT_INSTRUCTIONS.md`
+- [x] Copy JSON schema template exactly
+- [x] Configure Microsoft Learn MCP tool access:
+  - [x] Ensure `microsoft_docs_search` tool is available to agent
+  - [x] Agent can query Azure documentation for service names and SKUs
+  - [x] Agent uses latest Azure service information when building BOM
+- [x] Verify service-to-SKU mapping guidance included
+- [x] Verify default `hours_per_month: 730` instruction
+- [x] Implement JSON extraction logic:
+  - [x] Handle markdown code blocks (```json ... ```)
+  - [x] Parse JSON array with `json.loads()`
+  - [x] Validate required fields:
+    - [x] serviceName
+    - [x] sku
+    - [x] quantity
+    - [x] region
+    - [x] armRegionName
+    - [x] hours_per_month
+- [x] Add error handling:
+  - [x] Invalid JSON → log error, request retry
+  - [x] Missing fields → validation error
+  - [x] Malformed structure → graceful failure
+- [x] Test with various requirement scenarios:
+  - [x] Simple web app → App Service
+  - [x] Database → SQL Database
+  - [x] Multi-service → App Service + SQL + Storage
 
 ---
 

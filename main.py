@@ -16,6 +16,7 @@ from src.agents import (
     create_pricing_agent,
     create_proposal_agent,
 )
+from src.agents.bom_agent import parse_bom_response
 
 
 async def run_question_workflow(client: AzureAIAgentClient):
@@ -106,13 +107,31 @@ async def run_sequential_workflow(client: AzureAIAgentClient, requirements: str)
     print("Processing requirements through agents...\n")
     
     final_proposal = ""
+    bom_response = ""
+    current_agent_output = ""
     
     async for event in workflow.run_stream(requirements):
         if isinstance(event, AgentRunUpdateEvent):
+            # Collect agent output
+            current_agent_output += event.data
             # Show agent output in real-time
             print(event.data, end='', flush=True)
         
         elif isinstance(event, WorkflowOutputEvent):
+            # Parse and validate BOM JSON if this is BOM agent output
+            if not bom_response:
+                try:
+                    print("\n\n=== Parsing BOM JSON ===")
+                    bom_data = parse_bom_response(current_agent_output)
+                    print(f"✅ Validated BOM with {len(bom_data)} items:")
+                    for item in bom_data:
+                        print(f"  - {item['serviceName']} ({item['sku']}) x{item['quantity']} in {item['region']}")
+                    bom_response = current_agent_output
+                    current_agent_output = ""
+                except ValueError as e:
+                    print(f"\n❌ BOM Validation Error: {e}")
+                    raise
+            
             # Extract final proposal
             for msg in event.data:
                 if msg.role.value == "assistant":
