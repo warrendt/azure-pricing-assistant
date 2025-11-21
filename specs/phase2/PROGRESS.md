@@ -11,27 +11,27 @@ Replace mock responses with intelligent prompt engineering, add Azure Retail Pri
 
 **Note**: Question Agent uses `ChatAgent.run_stream()` with thread (not HandoffBuilder workflow)
 
-- [ ] Update `question_agent.py` with Phase 2 instructions from `specs/phase2/AGENT_INSTRUCTIONS.md`
-- [ ] Copy enhanced instructions EXACTLY (do not paraphrase)
-- [ ] Maintain ChatAgent pattern with thread-based conversation (max 10 turns)
-- [ ] Configure Microsoft Learn MCP tool access:
-  - [ ] Ensure `microsoft_docs_search` tool is available to agent
-  - [ ] Agent can query Azure documentation for service recommendations
-  - [ ] Agent uses latest Azure service information when asking questions
-- [ ] Verify instruction includes intelligent question flow:
-  - [ ] First: Workload type (web, database, analytics, ML, etc.)
-  - [ ] Second: Scale requirements (users, requests, data volume)
-  - [ ] Third: Specific Azure services or recommendations
-  - [ ] Fourth: Deployment region
-  - [ ] Optional: Special requirements (HA, compliance)
-- [ ] Ensure minimum completion criteria documented:
-  - [ ] Workload type + at least one service + region
-- [ ] Verify "We are DONE!" instruction preserved
-- [ ] Test with various workload scenarios:
-  - [ ] Web application
-  - [ ] Database workload
-  - [ ] Analytics workload
-  - [ ] Multi-service scenario
+- [x] Update `question_agent.py` with Phase 2 instructions from `specs/phase2/AGENT_INSTRUCTIONS.md`
+- [x] Copy enhanced instructions EXACTLY (do not paraphrase)
+- [x] Maintain ChatAgent pattern with thread-based conversation (max 10 turns)
+- [x] Configure Microsoft Learn MCP tool access:
+  - [x] Ensure `microsoft_docs_search` tool is available to agent
+  - [x] Agent can query Azure documentation for service recommendations
+  - [x] Agent uses latest Azure service information when asking questions
+- [x] Verify instruction includes intelligent question flow:
+  - [x] First: Workload type (web, database, analytics, ML, etc.)
+  - [x] Second: Scale requirements (users, requests, data volume)
+  - [x] Third: Specific Azure services or recommendations
+  - [x] Fourth: Deployment region
+  - [x] Optional: Special requirements (HA, compliance)
+- [x] Ensure minimum completion criteria documented:
+  - [x] Workload type + at least one service + region
+- [x] Verify "We are DONE!" instruction preserved
+- [x] Test with various workload scenarios:
+  - [x] Web application
+  - [x] Database workload
+  - [x] Analytics workload
+  - [x] Multi-service scenario
 
 ---
 
