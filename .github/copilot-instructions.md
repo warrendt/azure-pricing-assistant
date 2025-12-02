@@ -19,21 +19,26 @@ When implementing or modifying agent code:
 - Maintain strict adherence to the input/output schemas defined in the PRD.
 
 ### 2. Workflow Orchestration
-- **Question Agent**: Uses `ChatAgent` or `HandoffBuilder` with termination condition detecting "We are DONE!".
-- **Processing Pipeline**: Uses `SequentialBuilder` for BOM -> Pricing -> Proposal agents.
+- **Question Agent**: Uses `ChatAgent` with thread-based conversation. Terminates when "We are DONE!" is detected.
+- **Processing Pipeline**: Uses `SequentialBuilder` for BOM → Pricing → Proposal agents.
 - Follow the orchestration patterns defined in `specs/PRD.md`.
 
-### 3. Data Schemas
+### 3. Agent Tools
+- **Question Agent & BOM Agent**: Use `MCPStreamableHTTPTool` for Microsoft Learn documentation access.
+- **Pricing Agent**: Uses `AIFunction` wrapping `get_azure_price()` for Azure Retail Prices API.
+- **Proposal Agent**: No tools (pure text synthesis).
+
+### 4. Data Schemas
 - **BOM JSON**: Must match the schema defined in the PRD (Section 4.2).
 - **Pricing Output**: Must match the schema defined in the PRD (Section 4.3).
 - **Proposal**: Must follow the markdown structure defined in the PRD (Section 4.4).
 
-### 4. API Integration
+### 5. API Integration
 - Use Azure Retail Prices API endpoint: `https://prices.azure.com/api/retail/prices`
 - Follow the API usage guidelines in `specs/PRD.md`.
 - Handle errors gracefully (return 0.0 for missing pricing data).
 
-### 5. Code Organization
+### 6. Code Organization
 ```
 src/
 ├── agents/
@@ -45,7 +50,7 @@ src/
     └── pricing_api.py
 ```
 
-### 6. Testing Requirements
+### 7. Testing Requirements
 - All agent changes must be tested end-to-end.
 - Verify "We are DONE!" termination for Question Agent.
 - Validate JSON schema compliance for BOM output.
@@ -56,8 +61,9 @@ src/
 
 ### Creating/Modifying an Agent
 1. Read the relevant agent section in `specs/PRD.md`.
-2. Implement using `AzureAIAgentClient.create_agent()`.
+2. Implement using `ChatAgent` from the agent framework.
 3. Ensure instructions reflect the "Capabilities" and "Role" defined in the PRD.
+4. Use appropriate tools (`MCPStreamableHTTPTool` for docs, `AIFunction` for API calls).
 
 ### Updating Agent Instructions
 1. If the change represents a requirement change, update `specs/PRD.md` first.

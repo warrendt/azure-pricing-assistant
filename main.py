@@ -1,4 +1,4 @@
-"""Azure Seller Assistant - Phase 1 Implementation."""
+"""Azure Seller Assistant - Multi-agent workflow for Azure pricing and proposals."""
 
 import asyncio
 import os
@@ -152,7 +152,7 @@ async def run_sequential_workflow(client: AzureAIAgentClient, requirements: str)
 
 
 async def main():
-    """Main entry point for Phase 1 implementation."""
+    """Main entry point for Azure Seller Assistant."""
     # Load environment variables
     load_dotenv()
 
@@ -165,7 +165,7 @@ async def main():
         print("Please copy .env.example to .env and configure your Azure AI Foundry endpoint")
         return
     
-    print("Azure Seller Assistant - Phase 1 (Mock Implementation)")
+    print("Azure Seller Assistant")
     print("=" * 60)
     
     # Create Azure AI client
