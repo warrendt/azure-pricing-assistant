@@ -56,6 +56,11 @@ Workflow: Question Agent (chat) → Sequential workflow (BOM → Pricing → Pro
    az login
    ```
 
+6. **Optional - Start Aspire Dashboard**
+   ```
+   docker run --rm -it -p 18888:18888 -p 4317:18889 --name aspire-dashboard mcr.microsoft.com/dotnet/aspire-dashboard:latest
+   ```
+
 ## Usage
 
 Run the Phase 1 implementation:
