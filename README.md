@@ -1,4 +1,4 @@
-# Azure Seller Assistant
+# Azure Pricing Assistant
 
 AI-powered Azure pricing solution using Microsoft Agent Framework with multi-agent workflow for requirements gathering, BOM generation, pricing calculation, and proposal creation.
 

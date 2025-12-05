@@ -1,4 +1,4 @@
-"""Agent creation functions for Azure Seller Assistant."""
+"""Agent creation functions for Azure Pricing Assistant."""
 
 from .question_agent import create_question_agent
 from .bom_agent import create_bom_agent

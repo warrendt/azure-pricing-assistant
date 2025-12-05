@@ -1,7 +1,7 @@
-# Product Requirements Definition (PRD): Azure Seller Assistant
+# Product Requirements Definition (PRD): Azure Pricing Assistant
 
 ## 1. Overview
-The **Azure Seller Assistant** is an AI-powered tool designed to automate the process of gathering customer requirements, designing Azure solutions, estimating costs, and generating professional proposals. It leverages a multi-agent architecture to handle distinct stages of the sales engineering workflow, ensuring accuracy and consistency.
+The **Azure Pricing Assistant** is an AI-powered tool designed to automate the process of gathering customer requirements, designing Azure solutions, estimating costs, and generating professional proposals. It leverages a multi-agent architecture to handle distinct stages of the sales engineering workflow, ensuring accuracy and consistency.
 
 ## 2. Goals & Objectives
 - **Automate Requirement Gathering**: Replace manual questionnaires with an intelligent, interactive chat interface.

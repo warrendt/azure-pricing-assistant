@@ -1,4 +1,4 @@
-"""Azure Seller Assistant - Multi-agent workflow for Azure pricing and proposals."""
+"""Azure Pricing Assistant - Multi-agent workflow for Azure pricing and proposals."""
 
 import asyncio
 import os
@@ -159,7 +159,7 @@ async def run_sequential_workflow(client: AzureAIAgentClient, requirements: str)
 
 
 async def main():
-    """Main entry point for Azure Seller Assistant."""
+    """Main entry point for Azure Pricing Assistant."""
     # Load environment variables
     load_dotenv()
 
@@ -172,7 +172,7 @@ async def main():
         print("Please copy .env.example to .env and configure your Azure AI Foundry endpoint")
         return
     
-    print("Azure Seller Assistant")
+    print("Azure Pricing Assistant")
     print("=" * 60)
     
     # Create Azure AI client
@@ -182,7 +182,7 @@ async def main():
             async_credential=credential
         ) as client:
             try:
-                with get_tracer().start_as_current_span("Azure Seller Assistant", kind=SpanKind.CLIENT) as top_span:
+                with get_tracer().start_as_current_span("Azure Pricing Assistant", kind=SpanKind.CLIENT) as top_span:
                         
                     # Step 1: Requirements gathering via handoff workflow
                     with get_tracer().start_as_current_span("Requirements Gathering", kind=SpanKind.CLIENT) as requirements_span:

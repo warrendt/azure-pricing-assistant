@@ -1,1 +1,1 @@
-"""Utility functions for Azure Seller Assistant."""
+"""Utility functions for Azure Pricing Assistant."""

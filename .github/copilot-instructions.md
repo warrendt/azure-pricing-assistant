@@ -1,4 +1,4 @@
-# GitHub Copilot Instructions for Azure Seller Assistant
+# GitHub Copilot Instructions for Azure Pricing Assistant
 
 ## Project Context
 
