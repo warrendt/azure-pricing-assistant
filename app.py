@@ -23,7 +23,14 @@ load_dotenv()
 # setup_observability()
 
 app = Flask(__name__)
-app.secret_key = os.getenv("FLASK_SECRET_KEY", os.urandom(24).hex())
+flask_secret_key = os.getenv("FLASK_SECRET_KEY")
+if not flask_secret_key:
+    raise RuntimeError(
+        "FLASK_SECRET_KEY environment variable is not set. "
+        "Set this variable to a strong, consistent value for production deployments. "
+        "See Flask documentation for details."
+    )
+app.secret_key = flask_secret_key
 
 # Store active chat threads in memory (in production, use Redis or similar)
 chat_threads = {}
