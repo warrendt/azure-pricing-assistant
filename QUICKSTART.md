@@ -17,7 +17,7 @@ azd auth login
 azd env new prod
 
 # 3. Set your AI Foundry endpoint
-azd env set AZURE_AI_PROJECT_ENDPOINT "https://wadutoitaiswed1991986796.services.ai.azure.com/api/projects/wadutoit-sweden-agents-prj"
+azd env set AZURE_AI_PROJECT_ENDPOINT "https://your-project.services.ai.azure.com/api/projects/your-project-prj"
 
 # 4. Deploy!
 azd up
