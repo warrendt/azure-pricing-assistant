@@ -31,19 +31,6 @@ app.secret_key = os.getenv("FLASK_SECRET_KEY", os.urandom(24).hex())
 chat_threads = {}
 
 
-def get_azure_client():
-    """Create Azure AI client (synchronous wrapper)."""
-    endpoint = os.getenv("AZURE_AI_PROJECT_ENDPOINT")
-    if not endpoint:
-        raise ValueError("AZURE_AI_PROJECT_ENDPOINT not set")
-    
-    credential = DefaultAzureCredential()
-    return AzureAIAgentClient(
-        project_endpoint=endpoint,
-        async_credential=credential
-    )
-
-
 async def chat_message(session_id: str, user_message: str):
     """Process a single chat message and return agent response."""
     try:
